@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/image');
 
 const ImageSchema = new mongoose.Schema({
-  imageURL: String
+  imageUrl: String
 })
 
 const Image = mongoose.model('Image', ImageSchema);
 
 const save = (pic) => {
   var newPic = new Image({
-    imageURL: pic.imageURL
+    imageUrl: pic.imageURL
   })
 
   newPic.save(function(err) {
