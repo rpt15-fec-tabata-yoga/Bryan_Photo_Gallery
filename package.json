@@ -5,11 +5,13 @@
   "author": "",
   "license": "",
   "engines": {
-    "node": ">=6.13.0",
-    "start": "nodemon server/index.js",
-    "db:setup": "node database/seed.js"
+    "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "db:setup": "node database/seed.js",
+    "build": "webpack --config webpack.config.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -19,6 +21,8 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
   }
 }
