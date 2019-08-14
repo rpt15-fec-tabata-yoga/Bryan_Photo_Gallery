@@ -1,11 +1,11 @@
 import React from 'react';
 
-class App extends React.Component {
+class PhotoGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
 
-    }
+    };
   }
   
   render() {
@@ -13,8 +13,8 @@ class App extends React.Component {
       <div>
         <h1>SWEET PHOTO CAROUSEL</h1>
       </div>
-    )
+    );
   }
 }
 
-export default App;
+export default PhotoGallery;
