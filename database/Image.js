@@ -8,6 +8,13 @@ const ImageSchema = new mongoose.Schema({
   
   const Image = mongoose.model('Image', ImageSchema);
   
+  module.exports = Image;
+
+
+
+
+  
+
   // const save = (pic) => {
   //   var newImage = new Image({
   //     imageUrl: pic.imageURL
@@ -34,4 +41,3 @@ const ImageSchema = new mongoose.Schema({
   
   // module.exports.save = save;
   // module.exports.fetch = fetch;
-  module.exports = Image;
