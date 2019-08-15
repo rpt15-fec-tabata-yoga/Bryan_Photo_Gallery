@@ -1,18 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../database/index.js');
+const Images = require('../database/Image.js');
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/image', (req, res) => {
-  res.send('WE GOT IT');
-  // res.status(200);
-  // db.fetch(res.send.bind(res));
-})
+  Images.findOne({}).exec((err, results) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.json(results);
+    }
+  })
+});
 
 const port = 3002;
 

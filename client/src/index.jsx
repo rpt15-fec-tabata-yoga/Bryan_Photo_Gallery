@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PhotoGallery from './PhotoGallery.jsx';
 
 class App extends React.Component {
@@ -19,4 +20,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('app'));
