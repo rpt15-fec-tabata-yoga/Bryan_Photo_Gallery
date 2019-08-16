@@ -9,17 +9,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/image', (req, res) => {
-  Images.findOne({}).exec((err, results) => {
+  Images.find({ game_name: "autem" }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {
       res.json(results);
     }
-  })
+  });
 });
 
 const port = 3002;
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
-})
+});

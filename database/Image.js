@@ -2,18 +2,14 @@ const db = require('./index.js');
 const mongoose = require('mongoose');
 
 const ImageSchema = new mongoose.Schema({
-    game_id: {type: Number, default: 0},
+    game_name: String,
     imageUrl: String
-  })
+  });
   
   const Image = mongoose.model('Image', ImageSchema);
   
   module.exports = Image;
 
-
-
-
-  
 
   // const save = (pic) => {
   //   var newImage = new Image({
