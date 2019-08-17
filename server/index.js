@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/image', (req, res) => {
-  Images.find({ game_name: "autem" }).exec((err, results) => {
+  Images.find({ game_name: "stardew_valley" }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {

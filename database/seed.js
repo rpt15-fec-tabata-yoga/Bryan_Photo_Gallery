@@ -13,8 +13,20 @@ const seedImages = () => {
   }
 }
 
-// const seedStardewImages = () => {
+const stardewImages = [
+  {
+    game_name: 'stardew_valley',
+    imageUrl: 'https://steamimages.s3-us-west-1.amazonaws.com/animalStrip2.png'
+  },
+  {
+    game_name: 'stardew_valley',
+    imageUrl: 'https://steamimages.s3-us-west-1.amazonaws.com/header.jpg'
+  }
+];
 
-// }
+const seedStardewImages = function() {
+  Image.create(stardewImages)
+}
 
-seedImages(100);
+seedStardewImages();
+seedImages(99);

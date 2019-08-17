@@ -10,7 +10,8 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "db:setup": "node database/seed.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -27,6 +28,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-react": "^6.24.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.9.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"
   }
