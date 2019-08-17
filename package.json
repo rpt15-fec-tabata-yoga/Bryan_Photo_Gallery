@@ -27,6 +27,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-react": "^6.24.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.9.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"
   }
