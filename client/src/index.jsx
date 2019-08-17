@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PhotoGallery from './PhotoGallery.jsx';
+import PhotoGallery from './components/PhotoGallery.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,14 +10,18 @@ class App extends React.Component {
     };
   }
 
+  // componentDidMount
+
   render() {
     return (
       <div>
-        <h1>HEY THERE</h1>
-        <PhotoGallery />
+        <div className="photocarousel">
+          <h1>HEY THERE</h1>
+          <PhotoGallery />
+        </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('photogallery'));

@@ -29,4 +29,4 @@ const seedStardewImages = function() {
 }
 
 seedStardewImages();
-seedImages(99);
+seedImages(98);
