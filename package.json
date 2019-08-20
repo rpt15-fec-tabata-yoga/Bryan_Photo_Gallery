@@ -10,11 +10,12 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "db:setup": "node database/seed.js",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack -d --watch",
     "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongoose": "^5.6.9",
@@ -23,10 +24,15 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "babel-preset-react": "^6.24.1",
+    "babel-watch": "^7.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.9.0",
     "webpack": "^4.39.2",
