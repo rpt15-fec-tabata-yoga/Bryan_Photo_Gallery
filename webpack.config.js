@@ -14,9 +14,11 @@ module.exports = {
         test: /\.jsx?/,
         exclude: /node_modules/,
         include: SRC_DIR,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-react', '@babel/preset-env']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env']
+          }
         }
       }
     ]

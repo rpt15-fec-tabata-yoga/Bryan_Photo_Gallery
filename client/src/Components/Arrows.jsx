@@ -1,7 +1,9 @@
-const Arrows = ({ direction, clickFunc, display }) => {
+import React from 'react';
+
+const Arrows = ({ direction, clickFunc, display }) => (
   <div className={ `slide-arrow ${direction}`} onClick={ clickFunc }>
-    { display }
+    return ({ display })
   </div>
-};
+);
 
 export default Arrows;
