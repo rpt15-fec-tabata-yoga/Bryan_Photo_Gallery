@@ -2,6 +2,7 @@ const db = require('./index.js');
 const mongoose = require('mongoose');
 
 const ImageSchema = new mongoose.Schema({
+    game_id: Number,
     game_name: String,
     imageUrl: String
   });

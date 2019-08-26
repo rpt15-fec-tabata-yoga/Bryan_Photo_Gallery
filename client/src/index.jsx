@@ -26,20 +26,6 @@ class App extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-    var that = this;
-    if (this.pause === true) {
-      clearInterval(this.timeout);
-      this.timePause = setTimeout(() => {
-        clearInterval(this.timePause);
-      }, 8000);
-      this.pause = false;
-    }
-    this.timeout = setTimeout(() => { 
-      that.nextSlide('auto')
-    }, 3000);
-  }
-
   nextSlide(direction) {
     let index = 0;
     switch (direction) {
@@ -83,6 +69,20 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('photogallery'));
 
+
+// componentDidUpdate() {
+//   var that = this;
+//   if (this.pause === true) {
+//     clearInterval(this.timeout);
+//     this.timePause = setTimeout(() => {
+//       clearInterval(this.timePause);
+//     }, 8000);
+//     this.pause = false;
+//   }
+//   this.timeout = setTimeout(() => { 
+//     that.nextSlide('auto')
+//   }, 3000);
+// }
 
 // --------------------
 
