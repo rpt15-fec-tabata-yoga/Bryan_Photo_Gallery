@@ -2,66 +2,73 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-import ImageItem from './Components/Image.jsx';
-import Thumbnails from './Components/Thumbnails.jsx';
+import ImageItem from './Components/ImageItem.jsx';
+import ThumbnailGallery from './Components/ThumbnailGallery.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      slideShow: [],
-      slideIndex: 0
+      images: [],
+      currentImage: null
     };
-    this.currentIndex = 0;
-    this.pause = false;
+
+    this.handleImageListClick = this.handleImageListClick.bind(this);
   }
 
   //componentDidMount
   componentDidMount() {
-    $.get('/api/image', (data) => {
+    $.get('/api/image/:gameId/:game_name', (data) => {
+      console.log('DATA ---> ', data);
       this.setState({
-        slideShow: data,
-        slideIndex: data[this.currentIndex]
+        images: data,
+        currentImages: data[0]
       });
     });
   }
 
-  nextSlide(direction) {
-    let index = 0;
-    switch (direction) {
-      case 'auto':
-        index = this.currentIndex + 1;
-        this.currentIndex = index >= this.state.slideShow.length ? 0 : index;
-        break;
-      case 'prev':
-        index = this.currentIndex - 1;
-        this.currentIndex = index < 0 ? this.state.slideShow.length - 1 : index;
-        break;
-      case 'next':
-        index = this.currentIndex + 1;
-        this.currentIndex = index >= this.state.slideShow.length ? 0 : index;
-        this.pause = true;
-        break;
-      default:
-        this.currentIndex = direction;
-        this.pause = true;
-        break;
-    }
+  handleImageListClick(thumbnail) {
     this.setState({
-      slideShow: this.slideShow[this.currentIndex],
-      slideIndex: this.currentIndex
+      currentImage: thumbnail
     });
   }
+
+  // nextSlide(direction) {
+  //   let index = 0;
+  //   switch (direction) {
+  //     case 'auto':
+  //       index = this.currentIndex + 1;
+  //       this.currentIndex = index >= this.state.slideShow.length ? 0 : index;
+  //       break;
+  //     case 'prev':
+  //       index = this.currentIndex - 1;
+  //       this.currentIndex = index < 0 ? this.state.slideShow.length - 1 : index;
+  //       break;
+  //     case 'next':
+  //       index = this.currentIndex + 1;
+  //       this.currentIndex = index >= this.state.slideShow.length ? 0 : index;
+  //       this.pause = true;
+  //       break;
+  //     default:
+  //       this.currentIndex = direction;
+  //       this.pause = true;
+  //       break;
+  //   }
+  //   this.setState({
+  //     slideShow: this.slideShow[this.currentIndex],
+  //     slideIndex: this.currentIndex
+  //   });
+  // }
 
   render() {
     return (
       <div className="photocarousel">
-        <ImageItem images={this.state.slideIndex} />
-        {/* <Thumbnails allImages={ this.state.slideShow } changeSlide={ this.nextSlide } currentSlide={ this.state.slideIndex } /> */}
-        <div className="wrap">
+        <ImageItem image={this.state.currentImage} />
+        <ThumbnailGallery  handleImageListClick={this.handleImageListClick} images={this.state.images}/>
+        {/* <div className="wrap">
           <button className="btn-prev" value="Prev" onClick={() => this.nextSlide('prev')}>Previous</button>
           <button className="btn-next" value="Next" onClick={() => this.nextSlide('next')}>Next</button>
-        </div>
+        </div> */}
       </div>
     )
   }

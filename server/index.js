@@ -8,13 +8,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/api/image/:game_id', (req, res) => {
-  const game_id  = req.params.game_id;
+app.get('/api/image/:gameId', (req, res) => {
+  const gameId  = req.params.gameId;
   // const game_name = req.params.game_name
   // const imageUrl = req.params.imageUrl
   // console.log(req.params);
   // const { game_id } = req.params //76
-  Images.findOne({ game_id }).exec((err, results) => {
+  Images.findOne({ gameId }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {
@@ -25,11 +25,15 @@ app.get('/api/image/:game_id', (req, res) => {
   });
 });
 
-app.get('/api/image', (req, res) => {
-  Images.find({}).exec((err, results) => {
+app.get('/api/image/:gameId/:game_name', (req, res) => {
+  const game_name = req.params.game_name;
+  // const gameId = req.params.gameId;
+
+  Images.find({ game_name }).sort({ gameId: 1 }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {
+      // const imageUrl = results.imageUrl;
       res.json(results);
     }
   });

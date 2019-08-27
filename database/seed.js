@@ -68,7 +68,7 @@ const seedImages = (num) => {
     imageUrl = (i < 17 ) ? stardewImages[i].imageUrl : faker.image.food();
     // if stardew_valley arr.length is max then fake the data
     let image = new Image({ 
-      game_id: i+1, 
+      gameId: i+1, 
       game_name, 
       imageUrl
     });
