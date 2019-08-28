@@ -4,7 +4,7 @@ const Images = require('../database/Image.js');
 
 const app = express();
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use('/:gameId/:game_name', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -27,7 +27,9 @@ app.get('/api/image/:gameId', (req, res) => {
 
 app.get('/api/image/:gameId/:game_name', (req, res) => {
   const game_name = req.params.game_name;
-  // const gameId = req.params.gameId;
+  const gameId = req.params.gameId;
+  // console.log('req.params', req.params);
+  // console.log('gameId', gameId);
 
   Images.find({ game_name }).sort({ gameId: 1 }).exec((err, results) => {
     if (err) {

@@ -1,16 +1,16 @@
 import React from 'react';
-import ThumbnailItem from './ThumbnailItem.jsx';
+import ThumbnailEntry from './ThumbnailEntry.jsx';
 
-const ThumbnailGallery = ({ thumbnails, handleImageItemClick }) => (
+const ThumbnailGallery = (props) => (
   <div className="thumbnail-gallery">
-    {thumbnails.map((thumbnail) => 
-      <ThumbnailItem key={ thumbnail.gameId } thumbnail={ thumbnail } handleImageListClick={ handleImageItemClick } />
+    {props.images.map((image) => 
+      <ThumbnailEntry key={ image.gameId } image={ image } handleImageListClick={ props.handleImageListClick } />
       )}
   </div>
 );
 
-ThumbnailGallery.propTypes = {
-  thumbnails: React.PropTypes.array.isRequired
-};
+// ThumbnailGallery.propTypes = {
+//   images: React.PropTypes.array.isRequired
+// };
 
 export default ThumbnailGallery;

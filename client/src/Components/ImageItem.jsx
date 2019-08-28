@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ImageItem = ({image}) => (
+const ImageItem = (props) => (
   <div className="image-item">
-    <img className="display-image" src={image.imageUrl}></img>
+    <img className="display-image" src={props.image.imageUrl} />
   </div>
 )
 
-ImageItem.propTypes = {
-  // image: React.PropTypes.object.isRequired
-}
+// ImageItem.propTypes = {
+//   image: React.PropTypes.object.isRequired
+// }
 
 export default ImageItem;

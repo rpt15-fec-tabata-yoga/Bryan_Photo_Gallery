@@ -9,8 +9,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      gameId: window.location.pathname.split('/')[1],
+      game_name: window.location.pathname.split('/')[2],
       images: [],
-      currentImage: null
+      currentImage: ''
     };
 
     this.handleImageListClick = this.handleImageListClick.bind(this);
@@ -18,11 +20,10 @@ class App extends React.Component {
 
   //componentDidMount
   componentDidMount() {
-    $.get('/api/image/:gameId/:game_name', (data) => {
-      console.log('DATA ---> ', data);
+    $.get(`/api/image/${this.state.gameId}/${this.state.game_name}`, (data) => {
       this.setState({
         images: data,
-        currentImages: data[0]
+        currentImage: data[0]
       });
     });
   }
@@ -32,6 +33,23 @@ class App extends React.Component {
       currentImage: thumbnail
     });
   }
+
+  render() {
+    return (
+      <div className="photocarousel">
+        <ImageItem image={this.state.currentImage} />
+        <ThumbnailGallery  handleImageListClick={this.handleImageListClick} images={this.state.images}/>
+        {/* <div className="wrap">
+          <button className="btn-prev" value="Prev" onClick={() => this.nextSlide('prev')}>Previous</button>
+          <button className="btn-next" value="Next" onClick={() => this.nextSlide('next')}>Next</button>
+        </div> */}
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('photogallery'));
+
 
   // nextSlide(direction) {
   //   let index = 0;
@@ -59,23 +77,6 @@ class App extends React.Component {
   //     slideIndex: this.currentIndex
   //   });
   // }
-
-  render() {
-    return (
-      <div className="photocarousel">
-        <ImageItem image={this.state.currentImage} />
-        <ThumbnailGallery  handleImageListClick={this.handleImageListClick} images={this.state.images}/>
-        {/* <div className="wrap">
-          <button className="btn-prev" value="Prev" onClick={() => this.nextSlide('prev')}>Previous</button>
-          <button className="btn-next" value="Next" onClick={() => this.nextSlide('next')}>Next</button>
-        </div> */}
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('photogallery'));
-
 
 // componentDidUpdate() {
 //   var that = this;
