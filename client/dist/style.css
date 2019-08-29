@@ -1,0 +1,20 @@
+body {
+  background: #f1f1f1;
+}
+
+.thumbnail-gallery {
+  background: #fff;
+  padding: 8px;
+  border: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  margin-right: 20px;
+}
+
+.thumbnail-entry {
+  font-size: 16px;
+  padding: 8px;
+}
+
+.image-item {
+  margin-left: 20px;
+}
