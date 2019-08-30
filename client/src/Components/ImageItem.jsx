@@ -8,8 +8,4 @@ const ImageItem = (props) => (
   </div>
 )
 
-// ImageItem.propTypes = {
-//   image: React.PropTypes.object.isRequired
-// }
-
 export default ImageItem;

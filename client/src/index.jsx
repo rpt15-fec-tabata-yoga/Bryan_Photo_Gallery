@@ -20,7 +20,6 @@ class App extends React.Component {
     this.handleImageListClick = this.handleImageListClick.bind(this);
   }
 
-  //componentDidMount
   componentDidMount() {
     $.get(`/api/image/${this.state.gameId}/${this.state.game_name}`, (data) => {
       this.setState({
@@ -38,11 +37,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.photoCarousel}>
-        <div className="current-image">
+      <div>
+        <div>
           <ImageItem image={this.state.currentImage} />
         </div>
-        <div className="image-gallery">
+        <div>
           <ThumbnailGallery handleImageListClick={this.handleImageListClick} images={this.state.images} />
         </div>
         {/* <div className="wrap">
