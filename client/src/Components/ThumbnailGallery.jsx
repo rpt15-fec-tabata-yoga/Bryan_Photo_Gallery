@@ -4,16 +4,12 @@ import ThumbnailEntry from './ThumbnailEntry.jsx';
 
 const ThumbnailGallery = (props) => (
   <div className={styles.thumbnailContainer}>
-    <ul className={styles.thumbnailList}>
+    <div className={styles.thumbnailList}>
     {props.images.map((image) => 
       <ThumbnailEntry key={ image.gameId } image={ image } handleImageListClick={ props.handleImageListClick } />
       )}
-    </ul>
+    </div>
   </div>
 );
-
-// ThumbnailGallery.propTypes = {
-//   images: React.PropTypes.array.isRequired
-// };
 
 export default ThumbnailGallery;
