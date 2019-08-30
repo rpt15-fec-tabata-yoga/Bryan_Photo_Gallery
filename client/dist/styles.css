@@ -2,9 +2,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   background: #1b2838;
-  width: 100%;
+  width: 689px;
   height: 100%;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
 }
@@ -13,19 +13,21 @@ body {
   margin-top: 4px;
   position: relative;
   height: 69px;
+  width: 689px;
   margin-bottom: 4px;
-}
+  z-index: 40;
 
-.thumbnailList {
-  position: absolute;
-  left: 0;
-  top: 0;
-  overflow: hidden;
+  display: flex;
+  /* position: absolute; */
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .thumbnailImage {
   width: 116px;
   height: 65px;
+  display: inline-block
 }
 
 .highlightedItem {
