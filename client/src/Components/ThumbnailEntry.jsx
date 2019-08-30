@@ -1,9 +1,11 @@
 import React from 'react';
+import styles from '../../dist/styles.css'
+
 
 var ThumbnailEntry = (props) => (
   // console.log(thumbnail)
-  <div className="thumbnail-entry">
-    <img className="thumbnail-image" src={props.image.imageUrl} onClick={(e) => props.handleImageListClick(props.image)} alt="" />
+  <div>
+    <img className={styles.thumbnailImage} src={props.image.imageUrl} onClick={(e) => props.handleImageListClick(props.image)} alt="" />
   </div>
 );
 

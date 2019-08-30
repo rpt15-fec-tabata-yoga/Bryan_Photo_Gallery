@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import styles from '../dist/styles.css'
+
 
 import ImageItem from './Components/ImageItem.jsx';
 import ThumbnailGallery from './Components/ThumbnailGallery.jsx';
@@ -36,9 +38,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="photocarousel">
-        <ImageItem image={this.state.currentImage} />
-        <ThumbnailGallery  handleImageListClick={this.handleImageListClick} images={this.state.images}/>
+      <div className={styles.photoCarousel}>
+        <div className="current-image">
+          <ImageItem image={this.state.currentImage} />
+        </div>
+        <div className="image-gallery">
+          <ThumbnailGallery handleImageListClick={this.handleImageListClick} images={this.state.images} />
+        </div>
         {/* <div className="wrap">
           <button className="btn-prev" value="Prev" onClick={() => this.nextSlide('prev')}>Previous</button>
           <button className="btn-next" value="Next" onClick={() => this.nextSlide('next')}>Next</button>
