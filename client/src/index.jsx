@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import styles from '../dist/styles.css'
 
-
 import ImageItem from './Components/ImageItem.jsx';
 import ThumbnailGallery from './Components/ThumbnailGallery.jsx';
 import PopUpImage from './Components/PopUpImage.jsx';
@@ -62,8 +61,12 @@ class ImageCarousel extends React.Component {
     return (
       <div>
         <div>
-          <ImageItem image={this.state.currentImage} togglePopUp={this.togglePopUp} ref={node => {this.node = node}} />
-            {this.state.showPopUp ? <PopUpImage image={this.state.currentImage} closePopUp={this.togglePopUp} /> : null }
+          <ImageItem image={this.state.currentImage} togglePopUp={this.togglePopUp} />
+            {this.state.showPopUp && (
+              <div ref={node => {this.node = node; }} >
+                <PopUpImage image={this.state.currentImage} closePopUp={this.togglePopUp} />
+              </div>
+            )}
         </div>
         <div>
           <ThumbnailGallery handleImageListClick={this.handleImageListClick} images={this.state.images} />
