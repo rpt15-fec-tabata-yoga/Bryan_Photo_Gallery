@@ -4,14 +4,14 @@ services:
   photo-gallery:
     build: .
     volumes:
-    - .:/src/app
+    - .:/usr/src/app
     - /app/node_modules
 
     ports:
     - "3002:3002"
     links:
     - "mongo"
-    
+
   mongo:
     image: mongo:latest
   
