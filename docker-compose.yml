@@ -3,14 +3,15 @@ version: '3'
 services:
   photo-gallery:
     build: .
+    volumes:
+    - .:/src/app
+    - /app/node_modules
+
     ports:
     - "3002:3002"
     links:
-    - mongo
-  mongo-seed:
-    build: .
-    volumes:
-    - ./database:/data
+    - "mongo"
+    
   mongo:
     image: mongo:latest
   
