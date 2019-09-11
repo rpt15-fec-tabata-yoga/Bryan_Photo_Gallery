@@ -1,14 +1,16 @@
 version: '3'
 
 services:
-  web:
+  photo-gallery:
     build: .
     ports:
     - "3002:3002"
-    depends_on:
+    links:
     - mongo
+  mongo-seed:
+    build: .
+    volumes:
+    - ./database:/data
   mongo:
-    image: mongo
-    ports:
-    - "image"
+    image: mongo:latest
   

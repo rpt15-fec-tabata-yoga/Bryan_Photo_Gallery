@@ -9,8 +9,4 @@ db.once('open', () => {
   console.log('Connected to mongoDB');
 });
 
-// save function
-
-// fetch function
-
 module.exports = db;
