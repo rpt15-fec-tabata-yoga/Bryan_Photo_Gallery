@@ -6,11 +6,15 @@ services:
     volumes:
     - .:/usr/src/app
     - /app/node_modules
-
     ports:
     - "3002:3002"
-    links:
+    depends_on:
     - "mongo"
+
+  # mongo-seed:
+  #   build: ./database
+  #   depends_on:
+  #   - "mongo"
 
   mongo:
     image: mongo:latest

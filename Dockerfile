@@ -1,5 +1,5 @@
 # What image do you want to start building on?
-FROM node:latest
+FROM node:12.9-alpine
 
 # Make a folder in your image where your app's source code can live
 RUN mkdir -p /usr/src/app
@@ -17,4 +17,4 @@ RUN npm install
 EXPOSE 3002
 
 # How do you start your app?
-CMD [ "npm", "start" ]
+CMD [ "npm", "start", "dockerStart" ]
