@@ -3,9 +3,6 @@ version: '3'
 services:
   photo-gallery:
     build: .
-    volumes:
-    - .:/usr/src/app
-    - /app/node_modules
     ports:
     - "3002:3002"
     depends_on:

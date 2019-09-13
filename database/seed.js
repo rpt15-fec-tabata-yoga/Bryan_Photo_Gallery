@@ -72,7 +72,13 @@ const seedImages = (num) => {
       game_name, 
       imageUrl
     });
-    image.save()
+    if (i === num - 1) {
+      image.save().then(() => {
+        process.exit();
+      })
+    } else {
+      image.save()
+    }
   }
 }
 
