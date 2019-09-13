@@ -11,7 +11,8 @@
     "start": "nodemon server/index.js",
     "db:setup": "node database/seed.js",
     "build": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest",
+    "dockerStart": "node database/seed.js && nodemon server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
