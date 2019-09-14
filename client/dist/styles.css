@@ -15,7 +15,7 @@ body {
   height: 69px;
   width: 689px;
   margin-bottom: 4px;
-  z-index: 40;
+  z-index: 0;
 
   display: flex;
   /* position: absolute; */
@@ -27,7 +27,8 @@ body {
 .thumbnailImage {
   width: 116px;
   height: 65px;
-  display: inline-block
+  display: inline-block;
+  z-index: 0;
 }
 
 .highlightedItem {

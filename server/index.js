@@ -4,34 +4,46 @@ const Images = require('../database/Image.js');
 
 const app = express();
 
-app.use('/:gameId/:game_name', express.static(__dirname + '/../client/dist'));
+app.use('/:gameId', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/api/image/:gameId', (req, res) => {
+// about game image at gameId = 1
+app.get('/api/aboutImage/:gameId', (req, res) => {
   const gameId  = req.params.gameId;
-  // const game_name = req.params.game_name
-  // const imageUrl = req.params.imageUrl
-  // console.log(req.params);
-  // const { game_id } = req.params //76
+  if (gameId === 1) {
+    // console.log(results)
+    Images.findOne({ gameId }).exec((err, results) => {
+      if (err) {
+        console.error(err);
+      } else {
+        res.json(results.imageUrl);
+      }
+    });
+  } else {
+    res.send('http://lorempixel.com/600/105/food/');
+  }
+})
+
+// overview image at gameId = 2
+app.get('/api/overviewImage/:gameId', (req, res) => {
+  const gameId  = req.params.gameId;
   Images.findOne({ gameId }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {
-      // console.log('HERE IS THE RES --->', res)
       const imageUrl = results.imageUrl;
+      // console.log(imageUrl);
       res.json(imageUrl);
     }
   });
 });
 
-app.get('/api/image/:gameId/:game_name', (req, res) => {
+app.get('/api/images/:gameId/', (req, res) => {
   const game_name = req.params.game_name;
   const gameId = req.params.gameId;
-  // console.log('req.params', req.params);
-  // console.log('gameId', gameId);
 
-  Images.find({ game_name }).sort({ gameId: 1 }).exec((err, results) => {
+  Images.find({ game_name: 'stardew_valley' }).exec((err, results) => {
     if (err) {
       console.error(err);
     } else {
