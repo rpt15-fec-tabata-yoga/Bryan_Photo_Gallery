@@ -8,11 +8,6 @@ services:
     depends_on:
     - "mongo"
 
-  # mongo-seed:
-  #   build: ./database
-  #   depends_on:
-  #   - "mongo"
-
   mongo:
     image: mongo:latest
   

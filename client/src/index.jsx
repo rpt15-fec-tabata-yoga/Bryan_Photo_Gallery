@@ -12,7 +12,7 @@ class ImageCarousel extends React.Component {
     super(props);
     this.state = {
       gameId: window.location.pathname.split('/')[1],
-      game_name: window.location.pathname.split('/')[2],
+      // game_name: window.location.pathname.split('/')[2],
       images: [],
       currentImage: '',
       showPopUp: false
@@ -24,7 +24,8 @@ class ImageCarousel extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`/api/image/${this.state.gameId}/${this.state.game_name}`, (data) => {
+    $.get(`/api/images/${this.state.gameId}`, (data) => {
+      console.log(data)
       this.setState({
         images: data,
         currentImage: data[0]
