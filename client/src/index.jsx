@@ -67,8 +67,6 @@ class ImageCarousel extends React.Component {
                 <PopUpImage image={this.state.currentImage} closePopUp={this.togglePopUp} />
               </div>
             )}
-        </div>
-        <div>
           <ThumbnailGallery handleImageListClick={this.handleImageListClick} images={this.state.images} />
         </div>
       </div>
