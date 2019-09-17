@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Images = require('../database/Image.js');
+const cors = require('cors');
 
 const app = express();
 
