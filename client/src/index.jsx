@@ -15,7 +15,8 @@ class ImageCarousel extends React.Component {
       // game_name: window.location.pathname.split('/')[2],
       images: [],
       currentImage: '',
-      showPopUp: false
+      showPopUp: false,
+      // selectedThumbnail: false
     };
 
     this.handleImageListClick = this.handleImageListClick.bind(this);
@@ -52,8 +53,10 @@ class ImageCarousel extends React.Component {
   }
 
   handleImageListClick(thumbnail) {
+
     this.setState({
-      currentImage: thumbnail
+      currentImage: thumbnail,
+      selectedThumbnail: !this.state.selectedThumbnail
     });
   }
 
