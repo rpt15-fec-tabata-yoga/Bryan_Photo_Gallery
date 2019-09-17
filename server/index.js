@@ -10,12 +10,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// about game image at gameId = 1
+// Josh's endpoint
 app.get('/api/aboutImage/:gameId', (req, res) => {
   const gameId = req.params.gameId;
   // console.log('HERE IS THE GAMEID ---> ', gameId)
-  if (gameId === 1) {
-    // console.log(results)
+  if (gameId === '1') {
     Images.findOne({ gameId }).exec((err, results) => {
       if (err) {
         console.error(err);
@@ -29,26 +28,29 @@ app.get('/api/aboutImage/:gameId', (req, res) => {
   }
 })
 
-// overview image at gameId = 2
+// Stephens' endpoint
 app.get('/api/overviewImage/:gameId', (req, res) => {
-  const gameId = req.params.gameId;
-  Images.findOne({ gameId }).exec((err, results) => {
-    if (err) {
-      console.error(err);
-    } else {
-      const imageUrl = results.imageUrl;
-      // console.log(imageUrl);
-      res.json(imageUrl);
-    }
-  });
+  let gameId = req.params.gameId;
+  if (gameId === '1') {
+    let gameId = '2';
+    Images.findOne({ gameId }).exec((err, results) => {
+      if (err) {
+        console.error(err);
+      } else {
+        const imageUrl = results.imageUrl;
+        res.json(imageUrl);
+      }
+    });
+  } else {
+    res.send('http://lorempixel.com/689/387/food/')
+  }
 });
 
 app.get('/api/images/:gameId/', (req, res) => {
   const game_name = req.params.game_name;
   const gameId = req.params.gameId;
-  console.log(gameId);
   // if (gameId === 1) {
-    Images.find({ game_name: 'stardew_valley' }).exec((err, results) => {
+    Images.find({}).where('gameId').gt(2).lt(18).sort({ gameId: 1}).exec((err, results) => {
       if (err) {
         console.error(err);
       } else {
