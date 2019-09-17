@@ -10,14 +10,16 @@ app.use(bodyParser.json());
 
 // about game image at gameId = 1
 app.get('/api/aboutImage/:gameId', (req, res) => {
-  const gameId  = req.params.gameId;
+  const gameId = req.params.gameId;
+  // console.log('HERE IS THE GAMEID ---> ', gameId)
   if (gameId === 1) {
     // console.log(results)
     Images.findOne({ gameId }).exec((err, results) => {
       if (err) {
         console.error(err);
       } else {
-        res.json(results.imageUrl);
+        const imageUrl = results.imageUrl
+        res.json(imageUrl);
       }
     });
   } else {
@@ -27,7 +29,7 @@ app.get('/api/aboutImage/:gameId', (req, res) => {
 
 // overview image at gameId = 2
 app.get('/api/overviewImage/:gameId', (req, res) => {
-  const gameId  = req.params.gameId;
+  const gameId = req.params.gameId;
   Images.findOne({ gameId }).exec((err, results) => {
     if (err) {
       console.error(err);
@@ -42,15 +44,17 @@ app.get('/api/overviewImage/:gameId', (req, res) => {
 app.get('/api/images/:gameId/', (req, res) => {
   const game_name = req.params.game_name;
   const gameId = req.params.gameId;
-
-  Images.find({ game_name: 'stardew_valley' }).exec((err, results) => {
-    if (err) {
-      console.error(err);
-    } else {
-      // const imageUrl = results.imageUrl;
-      res.json(results);
-    }
-  });
+  console.log(gameId);
+  // if (gameId === 1) {
+    Images.find({ game_name: 'stardew_valley' }).exec((err, results) => {
+      if (err) {
+        console.error(err);
+      } else {
+        // const imageUrl = results.imageUrl;
+        res.json(results);
+      }
+    });
+  // }
 });
 
 const port = 3002;

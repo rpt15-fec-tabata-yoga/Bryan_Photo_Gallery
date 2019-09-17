@@ -16,7 +16,6 @@ body {
   width: 689px;
   margin-bottom: 4px;
   z-index: 0;
-
   display: flex;
   /* position: absolute; */
   flex-wrap: nowrap;

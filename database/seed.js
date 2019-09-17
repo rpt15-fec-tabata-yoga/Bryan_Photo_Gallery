@@ -3,6 +3,7 @@ const Image = require('./Image.js')
 const faker = require('faker');
 
 const stardewImages = [
+
   {
     imageUrl: 'https://steamimages.s3-us-west-1.amazonaws.com/animalStrip2.png'
   },
@@ -65,11 +66,11 @@ const seedImages = (num) => {
   for (let i = 0; i < num; i++) {
     game_name = (i < 17) ? 'stardew_valley' : faker.lorem.word();
     // iterate through images url and assign to imageURL prop
-    imageUrl = (i < 17 ) ? stardewImages[i].imageUrl : faker.image.food();
+    imageUrl = (i < 17) ? stardewImages[i].imageUrl : faker.image.food();
     // if stardew_valley arr.length is max then fake the data
-    let image = new Image({ 
-      gameId: i+1, 
-      game_name, 
+    let image = new Image({
+      gameId: i + 1,
+      game_name,
       imageUrl
     });
     if (i === num - 1) {
