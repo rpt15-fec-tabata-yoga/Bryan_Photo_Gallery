@@ -25,7 +25,6 @@ class ImageCarousel extends React.Component {
 
   componentDidMount() {
     $.get(`/api/images/${this.state.gameId}`, (data) => {
-      console.log(data)
       this.setState({
         images: data,
         currentImage: data[0]

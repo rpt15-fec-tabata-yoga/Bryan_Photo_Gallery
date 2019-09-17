@@ -4,7 +4,7 @@ services:
   photo-gallery:
     build: .
     ports:
-    - "3002:3002"
+    - "80:3002"
     depends_on:
     - "mongo"
 
