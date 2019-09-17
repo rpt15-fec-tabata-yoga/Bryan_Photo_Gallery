@@ -7,6 +7,7 @@ const app = express();
 app.use('/:gameId', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 // about game image at gameId = 1
 app.get('/api/aboutImage/:gameId', (req, res) => {
