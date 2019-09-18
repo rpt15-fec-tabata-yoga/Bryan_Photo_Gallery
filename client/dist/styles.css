@@ -14,7 +14,6 @@ body {
   position: relative;
   height: 69px;
   width: 100%;
-  max-width: 689px;
   margin-bottom: 4px;
   z-index: 0;
   display: flex;
