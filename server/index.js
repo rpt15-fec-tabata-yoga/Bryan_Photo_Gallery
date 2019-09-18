@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Images = require('../database/Image.js');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use('/:gameId', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(compression());
 
 // Josh's endpoint
 app.get('/api/aboutImage/:gameId', (req, res) => {
