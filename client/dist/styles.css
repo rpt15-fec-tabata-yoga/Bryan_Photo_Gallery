@@ -39,7 +39,6 @@ body {
 
 .displayImage {
   width: 100%;
-  max-width: 689px;
   height: 387px;
   position: relative;
 }
@@ -61,7 +60,6 @@ body {
   position: absolute;
   z-index: 1000;
   width: 100%;
-  max-width: 350px;
   left: 22px;
   top: 196px;
 }
