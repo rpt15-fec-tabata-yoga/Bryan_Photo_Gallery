@@ -33,6 +33,16 @@ class ImageCarousel extends React.Component {
     });
   }
 
+  // setNextImage() {
+  //   let index = this.state.currentImage;
+  //   if (index === this.state.images.length) {
+  //     index === 0;
+  //     this.setState({
+  //       currentImage: data[0]
+  //     })
+  //   }
+  // }
+
   togglePopUp() {
     if (!this.state.showPopUp) {
       document.addEventListener('click', this.handleOutsideClick, false);
