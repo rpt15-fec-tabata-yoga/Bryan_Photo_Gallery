@@ -51,7 +51,6 @@ app.get('/api/overviewImage/:gameId', (req, res) => {
 app.get('/api/images/:gameId/', (req, res) => {
   const game_name = req.params.game_name;
   const gameId = req.params.gameId;
-  // if (gameId === 1) {
     Images.find({}).where('gameId').gt(2).lt(18).sort({ gameId: 1}).exec((err, results) => {
       if (err) {
         console.error(err);
