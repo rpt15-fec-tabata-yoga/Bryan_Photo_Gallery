@@ -1,8 +1,8 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
-const CompressionPlugin = require('compression-webpack-plugin');
-const S3Plugin = require('webpack-s3-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
+// const S3Plugin = require('webpack-s3-plugin');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
