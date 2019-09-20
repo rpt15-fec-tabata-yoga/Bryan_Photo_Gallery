@@ -62,6 +62,12 @@ app.get('/api/images/:gameId/', (req, res) => {
   // }
 });
 
+app.get('*.js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 const port = 3002;
 
 app.listen(port, () => {
